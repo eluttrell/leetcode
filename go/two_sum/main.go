@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func twoSum(nums []int, target int) []int {
+func TwoSum(nums []int, target int) []int {
 	indices := []int{}
 	hash := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
@@ -17,5 +17,5 @@ func twoSum(nums []int, target int) []int {
 
 func main() {
 	x := []int{1, 2, 3, 4, 14, 19, 10, 7}
-	fmt.Println(twoSum(x, 9))
+	fmt.Println(TwoSum(x, 9))
 }
