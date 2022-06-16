@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // Singly linked list
 type ListNode struct {
 	Val  int
@@ -9,12 +7,33 @@ type ListNode struct {
 }
 
 // Singly linked list Print method
-func (l *ListNode) Print() {
+func (l *ListNode) ListToArr(arr *[]int) {
 	ptr := l
+	counter := 0
 	for ptr != nil {
-		fmt.Println("Node: ", ptr.Val)
+		length := len(*arr)
+		if length <= counter {
+			(*arr) = append((*arr), make([]int, counter-(length-1))...)
+		}
+		(*arr)[counter] = ptr.Val
+		counter++
 		ptr = ptr.Next
 	}
+}
+
+func buildList(arr *[]int) *ListNode {
+	length := len(*arr)
+	head := ListNode{}
+	l := &head
+	for i := 0; i < length; i++ {
+		l.Val = (*arr)[i]
+		if i < length-1 {
+			l.Next = &ListNode{}
+			l = l.Next
+		}
+	}
+
+	return &head
 }
 
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
@@ -64,27 +83,4 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	return &list3
 }
 
-func main() {
-	// Build linked lists from slices
-	x := ListNode{}
-	y := ListNode{}
-
-	xl := &x
-	yl := &y
-
-	lx := []int{1, 2, 4}
-	ly := []int{1, 3, 4}
-
-	for i := 0; i < 3; i++ {
-		xl.Val = lx[i]
-		yl.Val = ly[i]
-		if i < 2 {
-			xl.Next = &ListNode{}
-			yl.Next = &ListNode{}
-			xl = xl.Next
-			yl = yl.Next
-		}
-	}
-
-	mergeTwoLists(&x, &y).Print()
-}
+func main() {}
