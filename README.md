@@ -54,3 +54,13 @@ A repo to store all my solutions for various leetcode problems in various progra
 ## Valid Anagram
 
 - Given two strings s and t, return true if t is an anagram of s, and false otherwise. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+- Solution languages:
+  - Go
+
+## Binary Search
+
+- Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1. You must write an algorithm with O(log n) runtime complexity.
+
+- Solution languages:
+  - Go
